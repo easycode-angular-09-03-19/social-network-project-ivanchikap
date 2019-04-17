@@ -1,9 +1,17 @@
-import {Component, OnInit} from '@angular/core';
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { passwordEqual } from '@helpers/validators';
+import { Component, OnInit} from '@angular/core';
+import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from "@angular/forms";
+import { passwordEqual, passwordEqualForInput } from '@helpers/validators';
 import { Router } from "@angular/router";
 import { AuthService } from "../../services/auth.service";
 import { DefaultServerAnswer } from "../../interfaces/DefaultServerAnswer";
+import {ErrorStateMatcher} from "@angular/material";
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (isSubmitted));
+  }
+}
 
 @Component({
   selector: 'app-signup-form',
@@ -11,6 +19,7 @@ import { DefaultServerAnswer } from "../../interfaces/DefaultServerAnswer";
   styleUrls: ['./signup-form.component.css']
 })
 export class SignupFormComponent implements OnInit {
+  matcher = new MyErrorStateMatcher();
   signUpForm: FormGroup;
   constructor(
     private router: Router,
@@ -31,11 +40,14 @@ export class SignupFormComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       phone: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
-      repeatPassword: new FormControl('', Validators.required),
-    }, { validators: passwordEqual,  updateOn: 'submit' });
+      repeatPassword: new FormControl('', [Validators.required, passwordEqualForInput]),
+    });
   }
 
   onSubmit() {
+    if (this.signUpForm.invalid) {
+      console.log('Validate error');
+    }
     this.authService.signUp({...this.signUpForm.value}).subscribe((res: DefaultServerAnswer) => {
       if (!res.error) {
         this.router.navigate(['auth/login']);
