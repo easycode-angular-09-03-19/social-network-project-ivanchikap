@@ -3,7 +3,7 @@ import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from "@
 import { passwordEqual, passwordEqualForInput } from '@helpers/validators';
 import { Router } from "@angular/router";
 import { AuthService } from "../../services/auth.service";
-import { DefaultServerAnswer } from "../../interfaces/DefaultServerAnswer";
+import { DefaultServerAnswer } from "../../../../common/interfaces/DefaultServerAnswer";
 import {ErrorStateMatcher} from "@angular/material";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {

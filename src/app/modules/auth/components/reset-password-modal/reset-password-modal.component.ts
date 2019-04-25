@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from "../../services/auth.service";
-import { DefaultServerAnswer } from "../../interfaces/DefaultServerAnswer";
+import { DefaultServerAnswer } from "../../../../common/interfaces/DefaultServerAnswer";
 
 @Component({
   selector: 'app-reset-password-modal',

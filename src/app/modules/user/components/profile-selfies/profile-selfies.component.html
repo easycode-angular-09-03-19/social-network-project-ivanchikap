@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col col-2 offset-10">
+      <a class="sort-picture-preview text-color-gray d-flex">
+        <span class="text-upper">Sort By: </span>
+        <span class="mr-2">Newest</span>
+        <i class="fas fa-sort-down"></i>
+      </a>
+    </div>
+  </div>
+  <div class="row selfie-row">
+    <ng-container *ngFor="let image of images">
+      <div class="col col-4 h-300">
+         <app-picture-preview [img]="image"
+         ></app-picture-preview>
+      </div>
+    </ng-container>
+  </div>
+</div>

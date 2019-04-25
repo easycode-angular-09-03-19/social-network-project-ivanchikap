@@ -4,7 +4,7 @@ import { environment } from "@env/environment";
 import { map } from "rxjs/operators";
 import { Observable } from "rxjs";
 import { LoginServerAnswer } from "../interfaces/LoginServerAnswer";
-import { DefaultServerAnswer } from "../interfaces/DefaultServerAnswer";
+import { DefaultServerAnswer } from "../../../common/interfaces/DefaultServerAnswer";
 import { MySignup } from "../interfaces/MySignup";
 
 @Injectable()

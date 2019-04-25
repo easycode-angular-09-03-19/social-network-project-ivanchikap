@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MessageService } from "primeng/api";
+import { CurrentUserStoreService } from "./common/services/current-user-store.service";
 
 @Component({
   selector: 'app-root',
@@ -7,12 +7,11 @@ import { MessageService } from "primeng/api";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'lesson7';
-  constructor(
-    private messageService: MessageService
-  ) {}
 
-  // onClick() {
-  //   this.messageService.add({severity: 'success', summary: 'Service Message', detail: 'Via MessageService'});
-  // }
+  constructor(
+    private currentUser: CurrentUserStoreService
+  ) {}
+  ngOnInit(): void {
+    this.currentUser.initCurrentUser();
+  }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { GlobalAuthService}  from "../../../../common-services/global-auth.service";
+import { GlobalAuthService}  from "../../../../common/services/global-auth.service";
 
 @Component({
   selector: 'app-login',
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (this.globalAuth.isLogin) {
+    if (this.globalAuth.token) {
       this.router.navigate(['/']);
     }
   }

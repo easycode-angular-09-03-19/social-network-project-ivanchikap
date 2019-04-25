@@ -1,0 +1,73 @@
+.profile-section {
+  color: #212121;
+}
+.user-avatar-wrapper {
+  max-width: 138px;
+  width: 100%;
+  margin-right: 18px;
+  position: relative;
+}
+
+.user-avatar-wrapper .user-avatar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  width: 138px;
+  height: 138px;
+  border-radius: 50%;
+  background-color: #b0b0b0;
+  overflow: hidden;
+  color: #fff;
+  cursor: pointer;
+}
+
+.user-avatar img {
+  width: 100%;
+}
+
+.user-avatar-overlay {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(70,70,70,.7);
+  opacity: 0;
+  text-align: center;
+  position: absolute;
+}
+
+.user-avatar-wrapper .user-avatar:hover .user-avatar-overlay {
+  opacity: 1;
+}
+
+.profile-data {
+  max-width: 220px;
+  width: 100%;
+}
+.profile-name {
+  font-weight: bolder;
+  font-size: 18px;
+}
+
+.profile-stats {
+  padding: 10px 0;
+}
+
+.stats-count {
+  font-size: 24px;
+}
+.stats-img {
+  width: 50px;
+  height: 22px;
+  background-image: url("/assets/img/points-stars.png");
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+.stats-desc {
+  color: #585858;
+  margin-left: 8px;
+  font-weight: bolder;
+  vertical-align: bottom;
+}

@@ -18,6 +18,9 @@
 .text-center {
   text-align: center;
 }
+.text-upper {
+  text-transform: uppercase;
+}
 .ml-auto {
   margin-left: auto;
 }
@@ -27,5 +30,25 @@
 .mr-2 {
   margin-right: 0.5rem;
 }
+.mr-4 {
+  margin-right: 1rem;
+}
+.ml-4 {
+  margin-left: 1rem;
+}
+.text-overflow-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
+.text-color-gray {
+  color: #585858;
+}
 
+.h-300 {
+  height: 300px!important;
+}
+.transition {
+  transition: .2s ease-out;
+}
