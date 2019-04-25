@@ -1,0 +1,21 @@
+<div class="profile-section d-flex flex-row align-items-center justify-content-center w-100">
+  <div class="user-avatar-wrapper">
+    <div class="user-avatar">
+      <img src="{{user?.avatar}}" alt="avatar">
+      <div class="user-avatar-overlay d-flex justify-content-center align-items-center text-center transition">
+        <i class="fa-icon fas fa-camera mr-2"></i>
+        <span>Change photo</span>
+      </div>
+    </div>
+  </div>
+  <div class="profile-data">
+    <div class="profile-name text-overflow-ellipsis">{{user?.full_name}}</div>
+    <span class="profile-country text-overflow-ellipsis">{{user?.country}}</span>
+  </div>
+  <div class="profile-stats d-flex flex-wrap align-items-end justify-content-center flex-row">
+    <div class="stats-count w-100 text-center">{{user?.rank.curent_rank}}</div>
+    <span class="stats-img"></span>
+    <span class="stats-desc text-upper">Points</span>
+  </div>
+</div>
+

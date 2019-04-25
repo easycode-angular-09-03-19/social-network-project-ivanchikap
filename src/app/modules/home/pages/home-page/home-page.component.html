@@ -1,0 +1,3 @@
+<app-home-inner [data]="homePageData"></app-home-inner>
+<app-challenges-list [challenges]="challenges"></app-challenges-list>
+<app-empty-list *ngIf="!challenges?.length" [text]="'No open challenges yet...'"></app-empty-list>

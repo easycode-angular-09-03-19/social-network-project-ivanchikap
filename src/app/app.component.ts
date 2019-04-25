@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CurrentUserStoreService } from "./common/services/current-user-store.service";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'homework4';
+
+  constructor(
+    private currentUser: CurrentUserStoreService
+  ) {}
+  ngOnInit(): void {
+    this.currentUser.initCurrentUser();
+  }
 }

@@ -1,0 +1,9 @@
+.row + .row {
+  margin-top: 50px;
+}
+.row.selfie-row {
+  margin-bottom: -30px;
+}
+.row.selfie-row .col.col-4 {
+  padding-bottom: 30px;
+}

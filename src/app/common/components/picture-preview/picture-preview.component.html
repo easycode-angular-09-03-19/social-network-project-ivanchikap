@@ -1,0 +1,23 @@
+<div class="image-wrapper">
+  <img src="{{img?.url}}" alt="image">
+  <div class="selfie-item-overlay d-flex flex-column justify-content-between">
+    <div class="overlay-top d-flex">
+      <button class="btn-delete-photo ml-auto transition">
+        <i class="fa-icon fas fa-trash"></i>
+      </button>
+    </div>
+    <div class="overlay-bottom">
+      <span class="views-count">
+        <i class="fas fa-eye ml-2"></i>
+        {{img.views?.length}}
+      </span>
+      <span class="likes-count">
+        <i class="fas fa-thumbs-up ml-2"></i>
+        {{img.likes?.length}}
+      </span>
+    </div>
+  </div>
+</div>
+
+
+

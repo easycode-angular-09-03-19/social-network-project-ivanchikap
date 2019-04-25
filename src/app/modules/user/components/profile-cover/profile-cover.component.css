@@ -1,0 +1,12 @@
+.profile-cover {
+  position: relative;
+  height: 400px;
+  background-color: lightgray;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.upload-cover {
+  position: absolute;
+  left: 50px;
+  bottom: 50px;
+}
