@@ -29,22 +29,8 @@ export class AuthService {
     return this.http.post<DefaultServerAnswer>(`${this.apiUrl}/public/auth/reset-password`, email);
   }
 
-  signUp(body: MySignup): Observable<DefaultServerAnswer> {
-    const signupBody = {
-      email: body.email,
-      password: body.password,
-      nickname: body.nickname,
-      first_name: body.first_name,
-      last_name: body.last_name,
-      phone: body.phone,
-      gender_orientation: body.gender_orientation,
-      city: body.city,
-      country: body.country,
-      date_of_birth_day: body.date_of_birth_day,
-      date_of_birth_month: body.date_of_birth_month,
-      date_of_birth_year: body.date_of_birth_year
-    };
-    return this.http.post<DefaultServerAnswer>(`${this.apiUrl}/public/auth/signup`, signupBody);
+  signUp(body: MySignup) {
+    return this.http.post<DefaultServerAnswer>(`${this.apiUrl}/public/auth/signup`, body);
   }
 }
 
