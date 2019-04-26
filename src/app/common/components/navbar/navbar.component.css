@@ -1,6 +1,6 @@
 mat-toolbar {
   background-color: #212121;
-  margin: 30px auto;
+  padding: 60px 0;
   color: #fff;
   text-transform: uppercase;
   position: relative;
@@ -73,37 +73,3 @@ mat-toolbar {
   overflow-y: auto;
   line-height: 1.5;
 }
-
-.notification {
-  border-bottom: 1px solid #e6e6e6;
-  padding: 20px 30px;
-}
-.notification-img {
-  width: 70px;
-  height: 70px;
-  margin-right: 18px;
-  border-radius: 50%;
-  background-color: #e6e6e6;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.notifications-body .notification-info p {
-  font-size: 14px;
-  line-height: normal;
-  margin-bottom: 10px;
-  text-transform: none;
-  color: black;
-  /*word-wrap: break-word;*/
-  white-space: normal;
-}
-.notifications-body .notification-info span {
-  font-size: 12px;
-  color: #585858;
-  text-transform: none;
-  white-space: normal;
-  /*word-wrap: break-word;*/
-}
-
-
-

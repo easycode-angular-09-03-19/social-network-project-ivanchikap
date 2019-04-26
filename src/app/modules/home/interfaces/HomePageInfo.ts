@@ -3,7 +3,7 @@ export interface HomePageInfo {
   countries: string;
   homeBackground: string;
   innerText: string;
-  region: string;
+  regions: string;
   __v: number;
   id: string;
 }

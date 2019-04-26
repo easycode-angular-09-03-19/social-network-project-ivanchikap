@@ -37,15 +37,7 @@
     </div>
     <ul class="notifications-body">
       <li *ngFor="let item of notifications">
-        <a href="#" class="notification d-flex align-items-center">
-          <div class="notification-img">
-            <img src="{{item.user_creator_id?.avatar}}" alt="photo">
-          </div>
-          <div class="notification-info">
-            <p>{{item.user_creator_id?.full_name}}  {{item.message}}</p>
-            <span>{{item.created_at}}</span>
-          </div>
-        </a>
+        <app-notification-item [item]="item"></app-notification-item>
       </li>
     </ul>
   </div>

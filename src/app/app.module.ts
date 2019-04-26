@@ -9,11 +9,13 @@ import { NavbarComponent } from './common/components/navbar/navbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { NotificationItemComponent } from './common/components/notification-item/notification-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    NotificationItemComponent
   ],
   imports: [
     BrowserModule,

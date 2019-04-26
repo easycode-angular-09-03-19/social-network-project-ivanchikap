@@ -3,6 +3,8 @@ import { HomeService } from "../../services/home.service";
 import { HomePageInfo } from "../../interfaces/HomePageInfo";
 import { MyChallenges } from "../../interfaces/MyChallenges";
 import { zip } from "rxjs/internal/observable/zip";
+import { HttpErrorResponse } from "../../../../common-interfaces/HttpErrorResponse";
+import { MessageService } from "primeng/api";
 
 
 @Component({
@@ -14,7 +16,8 @@ export class HomePageComponent implements OnInit {
   homePageData: HomePageInfo;
   challenges: MyChallenges;
   constructor(
-    private homeService: HomeService
+    private homeService: HomeService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit() {
@@ -22,11 +25,14 @@ export class HomePageComponent implements OnInit {
       this.homeService.getHomePage(),
       this.homeService.getActiveChallenges()
     )
-      .subscribe(([homePageData, {challenges}]: any) => {
+      .subscribe(([homePageData, {challenges}
+      ]: any) => {
         this.homePageData = homePageData;
         this.challenges = challenges;
-    }, (err) => {
-        console.log(err);
+    }, (err: HttpErrorResponse) => {
+        this.messageService.add({
+          severity: err.error, summary: err.message, detail: err.message
+        });
       });
   }
 }
