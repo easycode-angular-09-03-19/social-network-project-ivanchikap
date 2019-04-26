@@ -1,0 +1,30 @@
+<div class="col col-4">
+  <p-card header="{{challenge.challenge_name}}" [style]="{width: '360px'}" styleClass="ui-card-shadow">
+    <p-header>
+      <img class="card-img" [src]="challenge?.background">
+    </p-header>
+    <p-footer class="p-footer">
+      <div class="row">
+        <div class="col-4 d-flex justify-content-center align-items-center">
+          <div class="card-info text-center">
+            <span>${{challenge?.awards}}</span>
+            <div>Awards worth</div>
+          </div>
+        </div>
+        <div class="col-4 d-flex justify-content-center align-items-center">
+          <div class="card-info text-center">
+            {{challenge?.start_date.substring(0, 10)}}
+          </div>
+        </div>
+        <div class="col-4 d-flex justify-content-center align-items-center">
+          <div class="card-info text-center">
+            {{challenge?.votes}}
+            <div>Votes</div>
+          </div>
+        </div>
+      </div>
+    </p-footer>
+  </p-card>
+</div>
+
+

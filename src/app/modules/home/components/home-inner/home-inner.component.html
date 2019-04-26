@@ -1,0 +1,12 @@
+<div class="home-inner" [style.backgroundImage]="'url(' + data?.homeBackground + ')'">
+</div>
+<section class="inner-desc">
+  <div class="container d-flex flex-column align-items-center">
+    <ul class="inner-desc-stats d-flex align-items-center">
+      <li class="d-flex align-items-center">{{data?.cities}} Cities</li>
+      <li class="d-flex align-items-center">{{data?.countries}} Countries</li>
+      <li class="d-flex align-items-center">In {{data?.regions}} Regions In The World</li>
+    </ul>
+    <span class="inner-desc-title text-center">{{data?.innerText}}</span>
+  </div>
+</section>
