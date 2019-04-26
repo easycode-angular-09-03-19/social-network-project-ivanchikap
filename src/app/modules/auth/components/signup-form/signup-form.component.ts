@@ -36,10 +36,16 @@ export class SignupFormComponent implements OnInit {
   }
 
   onSubmit() {
+    if (this.signUpForm.invalid) {
+      console.log('Форма не валидна, отправлятся на сервер не будет');
+      return;
+    }
     this.authService.signUp({...this.signUpForm.value}).subscribe((res: DefaultServerAnswer) => {
       if (!res.error) {
         this.router.navigate(['auth/login']);
       }
+    }, (err: DefaultServerAnswer) => {
+      console.log(err);
     });
   }
 

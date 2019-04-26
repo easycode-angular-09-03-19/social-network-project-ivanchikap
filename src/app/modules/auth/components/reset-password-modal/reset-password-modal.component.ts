@@ -31,6 +31,8 @@ export class ResetPasswordModalComponent implements OnInit {
       if (!res.error) {
         this.closeModal();
       }
+    }, (err: DefaultServerAnswer) => {
+      console.log(err);
     });
   }
 }
