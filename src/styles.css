@@ -45,6 +45,9 @@
 .text-color-gray {
   color: #585858;
 }
+.text-color-white {
+  color: #fff;
+}
 
 .h-300 {
   height: 300px!important;
@@ -52,3 +55,40 @@
 .transition {
   transition: .2s ease-out;
 }
+
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: 15px 35px;
+  font-size: 16px;
+  font-weight: bolder;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 500px;
+  z-index: 0;
+  overflow: hidden;
+  transition: .4s ease-out;
+  border: 3px solid transparent;
+}
+
+.btn.btn-border-violet {
+  color: #fff;
+  transition: all .3s ease-out;
+  border: 3px solid #e12ebc;
+  background-color: #eee;color: #e12ebc;
+
+}
+.btn.btn-border-violet:hover {
+  box-shadow: 5px 5px 10px #e12ebc;
+}
+
+.btn.btn-border-black {
+  color: #212121;
+  background-color: #ccc;
+  border: 3px solid black;
+}
+.btn.btn-border-black:hover {
+  background-color: #777;
+  color: #fff;
+}
+

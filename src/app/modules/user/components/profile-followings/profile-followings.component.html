@@ -1,0 +1,11 @@
+<div class="profile-followings">
+  <div class="container">
+    <div class="row">
+      <ng-container *ngFor="let follower of followings">
+        <div class="col col-4">
+          <app-profile-follows [follower]="follower" [isItFollowings]="isItFollowings"></app-profile-follows>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

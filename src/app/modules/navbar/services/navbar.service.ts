@@ -14,11 +14,6 @@ export class NavbarService {
   ) { }
 
   getNotifications(): Observable<Notification> {
-    // const options = {
-    //   headers: {
-    //     'x-access-token': header
-    //   }
-    // };
     return this.http.get<Notification>(`${this.apiUrl}/public/users/notification`);
   }
 }

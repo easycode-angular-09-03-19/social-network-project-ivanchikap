@@ -3,8 +3,6 @@ import { ActivatedRoute, ActivationEnd, Router } from "@angular/router";
 import { filter } from "rxjs/operators";
 import { NavbarService } from "../../services/navbar.service";
 import { CurrentUserStoreService } from "../../../../common/services/current-user-store.service";
-import { MyUser } from "../../../../common/interfaces/MyUser";
-
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +15,7 @@ export class NavbarComponent implements OnInit {
   userId: string;
   isHidden = true;
   showNotifications = false;
-  notifications: Notification;
+
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -35,12 +33,6 @@ export class NavbarComponent implements OnInit {
         });
       });
 
-    this.navbarService.getNotifications().subscribe((notifications: Notification) => {
-      if (notifications) {
-        this.notifications = notifications;
-      }
-    });
-
     this.currentUser.userWatcher.subscribe(({avatar, _id }: {avatar: string, _id: string}) => {
       if (_id) {
         this.userAvatar = avatar;
@@ -48,6 +40,7 @@ export class NavbarComponent implements OnInit {
       }
     });
   }
+
   signOut() {
     localStorage.removeItem('sn_app_token');
     this.userId = null;

@@ -84,6 +84,11 @@ textarea{
 }
 button{
   cursor: pointer;
+  font-size: inherit;
+  line-height: 1;
+  color: inherit;
+  background-color: transparent;
+  border: none;
 }
 label{
   margin-bottom: 0;

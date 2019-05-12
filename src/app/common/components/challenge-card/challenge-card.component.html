@@ -1,7 +1,7 @@
 <div class="col col-4">
   <p-card header="{{challenge.challenge_name}}" [style]="{width: '360px'}" styleClass="ui-card-shadow">
     <p-header>
-      <img class="card-img" src="{{challenge?.background}}">
+      <img class="card-img" [src]="challenge?.background">
     </p-header>
     <p-footer class="p-footer">
       <div class="row">

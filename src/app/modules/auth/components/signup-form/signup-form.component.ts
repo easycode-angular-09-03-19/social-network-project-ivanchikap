@@ -4,7 +4,8 @@ import { passwordEqual, passwordEqualForInput } from '@helpers/validators';
 import { Router } from "@angular/router";
 import { AuthService } from "../../services/auth.service";
 import { DefaultServerAnswer } from "../../../../common/interfaces/DefaultServerAnswer";
-import {ErrorStateMatcher} from "@angular/material";
+import { ErrorStateMatcher } from "@angular/material";
+import { MessageService } from "primeng/api";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -23,7 +24,8 @@ export class SignupFormComponent implements OnInit {
   signUpForm: FormGroup;
   constructor(
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit() {
@@ -46,12 +48,15 @@ export class SignupFormComponent implements OnInit {
 
   onSubmit() {
     if (this.signUpForm.invalid) {
-      console.log('Validate error');
+      this.messageService.add({severity: 'error', summary: 'Invalid form', detail: 'Invalid form'});
+      return;
     }
     this.authService.signUp({...this.signUpForm.value}).subscribe((res: DefaultServerAnswer) => {
       if (!res.error) {
         this.router.navigate(['auth/login']);
       }
+    }, (err: DefaultServerAnswer) => {
+      this.messageService.add({severity: 'error', summary: err.message, detail: 'bad request'});
     });
   }
 

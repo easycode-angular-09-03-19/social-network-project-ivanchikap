@@ -1,0 +1,13 @@
+<div class="profile-favourites">
+  <div class="container">
+    <div class="favourites-list d-flex flex-wrap">
+      <a href="#" class="favourites-item" *ngFor="let item of favourites">
+        <div class="item-content text-color-white h-300">
+          <img [src]="item?.url" alt="favourite">
+          <i class="btn-like fa-icon fa-heart pos-absolute transition active fas"></i>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+

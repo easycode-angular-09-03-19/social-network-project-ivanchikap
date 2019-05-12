@@ -8,6 +8,7 @@ import { ChallengesListComponent } from "../../common/components/challenges-list
 import { ChallengeCardComponent } from "../../common/components/challenge-card/challenge-card.component";
 import { EmptyListComponent } from "../../common/components/empty-list/empty-list.component";
 import { CardModule } from 'primeng/card';
+import { LoaderModule } from "../loader/loader.module";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CardModule } from 'primeng/card';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    CardModule
+    CardModule,
+    LoaderModule
   ],
   providers: [HomeService]
 })

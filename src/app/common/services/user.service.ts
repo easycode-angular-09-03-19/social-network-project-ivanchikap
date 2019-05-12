@@ -6,7 +6,10 @@ import { MyUser } from "../interfaces/MyUser";
 import { GlobalAuthService } from "./global-auth.service";
 import { CurrentUserStoreService } from "./current-user-store.service";
 import { map } from "rxjs/operators";
-import {ActivatedRoute, Router} from "@angular/router";
+import { UploadPhotosAnswer } from "../interfaces/UploadPhotosAnswer";
+import { FollowersFollowingsAnswer } from "../interfaces/FollowersFollowingsAnswer";
+import { ImagesAnswer } from "../interfaces/ImagesAnswer";
+import {DefaultServerAnswer} from "../interfaces/DefaultServerAnswer";
 
 @Injectable({
   providedIn: 'root'
@@ -35,7 +38,42 @@ export class UserService {
     const id = this.globalAuth.userId;
     return this.http.post(`${this.apiUrl}/public/users/upload-cover/${id}`, formData)
   }
-  getImages(id: string) {
-    return this.http.get(`${this.apiUrl}/public/users/my-images/${id}`)
+  getImages(id: string): Observable<ImagesAnswer> {
+    return this.http.get<ImagesAnswer>(`${this.apiUrl}/public/users/my-images/${id}`)
+  }
+  uploadPhotos(files: any[]): Observable<UploadPhotosAnswer> {
+    const formData = new FormData();
+    files.forEach((file) => formData.append('userPhotos', file));
+    const id = this.globalAuth.userId;
+    return this.http.post<UploadPhotosAnswer>(`${this.apiUrl}/public/users/upload-photos/${id}`, formData)
+  }
+  getFavourites(id: string): Observable<ImagesAnswer> {
+    return this.http.get<ImagesAnswer>(`${this.apiUrl}/public/users/my-favorites/${id}`, {
+      params: {
+        part: '1',
+        limit: '20'
+      }
+    });
+  }
+  getFollowers(id: string): Observable<FollowersFollowingsAnswer> {
+    return this.http.get<FollowersFollowingsAnswer>(`${this.apiUrl}/public/users/my-followers-followings/${id}`, {
+      params: {
+        part: '1',
+        limit: '15',
+        path: 'followings'
+      }
+    });
+  }
+  getFollowings(id: string): Observable<FollowersFollowingsAnswer> {
+    return this.http.get<FollowersFollowingsAnswer>(`${this.apiUrl}/public/users/my-followers-followings/${id}`, {
+      params: {
+        part: '1',
+        limit: '6',
+        path: 'followers'
+      }
+    });
+  }
+  followUnFollow(id: string): Observable<DefaultServerAnswer> {
+    return this.http.put<DefaultServerAnswer>(`${this.apiUrl}/public/users/following/${id}`, {});
   }
 }

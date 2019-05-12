@@ -1,21 +1,45 @@
-<div class="profile-section d-flex flex-row align-items-center justify-content-center w-100">
-  <div class="user-avatar-wrapper">
-    <div class="user-avatar">
-      <img src="{{user?.avatar}}" alt="avatar">
-      <div class="user-avatar-overlay d-flex justify-content-center align-items-center text-center transition">
-        <i class="fa-icon fas fa-camera mr-2"></i>
-        <span>Change photo</span>
+<div class="profile-heading">
+  <div class="container">
+    <div class="row d-flex justify-content-between">
+      <div class="col col-6 d-flex align-items-center">
+        <div class="profile-section d-flex flex-row align-items-center justify-content-center w-100">
+          <div class="user-avatar-wrapper">
+            <div class="user-avatar">
+              <img src="{{user?.avatar}}" alt="avatar">
+              <div class="user-avatar-overlay d-flex justify-content-center align-items-center text-center transition">
+                <i class="fa-icon fas fa-camera mr-2"></i>
+                <span>Change photo</span>
+              </div>
+            </div>
+          </div>
+          <div class="profile-data">
+            <div class="profile-name text-overflow-ellipsis">{{user?.full_name}}</div>
+            <span class="profile-country text-overflow-ellipsis">{{user?.country}}</span>
+          </div>
+          <div class="profile-stats d-flex flex-wrap align-items-end justify-content-center flex-row">
+            <div class="stats-count w-100 text-center">{{user?.rank.curent_rank}}</div>
+            <span class="stats-img"></span>
+            <span class="stats-desc text-upper">Points</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col col-6 d-flex align-self-center ml-auto">
+        <nav class="tabs-control d-flex align-items-center justify-content-end" *ngIf="user">
+          <ng-container *ngFor="let item of tabList">
+            <a href=""
+               [routerLink]="['/users', user._id]"
+               [queryParams]="{tab: item.tab}"
+               [ngClass]="{active: (activeTab | async) === item.tab}"
+               class="tab active d-flex flex-column text-center">
+              <div class="tab-count text-overflow-ellipsis">
+                {{user[item.type].length}}
+              </div>
+              <span class="tab-name text-upper">{{item.text}}</span>
+            </a>
+          </ng-container>
+        </nav>
       </div>
     </div>
   </div>
-  <div class="profile-data">
-    <div class="profile-name text-overflow-ellipsis">{{user?.full_name}}</div>
-    <span class="profile-country text-overflow-ellipsis">{{user?.country}}</span>
-  </div>
-  <div class="profile-stats d-flex flex-wrap align-items-end justify-content-center flex-row">
-    <div class="stats-count w-100 text-center">{{user?.rank.curent_rank}}</div>
-    <span class="stats-img"></span>
-    <span class="stats-desc text-upper">Points</span>
-  </div>
 </div>
-

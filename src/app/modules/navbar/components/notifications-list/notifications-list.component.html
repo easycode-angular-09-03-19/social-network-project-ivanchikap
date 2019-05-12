@@ -1,0 +1,15 @@
+<div class="notifications-list" >
+  <div class="notifications-header">
+    <h5>Notifications</h5>
+    <div class="btns-wrapper d-flex align-items-center">
+      <button>mark all as read</button>
+      <span class="ml-2 mr-2">•</span>
+      <button>delete all</button>
+    </div>
+  </div>
+  <ul class="notifications-body">
+    <li *ngFor="let item of notifications">
+      <app-notification-item [item]="item"></app-notification-item>
+    </li>
+  </ul>
+</div>

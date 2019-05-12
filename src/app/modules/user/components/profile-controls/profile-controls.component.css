@@ -1,3 +1,6 @@
+.profile-heading {
+  background-color: #fff;
+}
 .profile-section {
   color: #212121;
 }
@@ -71,3 +74,23 @@
   font-weight: bolder;
   vertical-align: bottom;
 }
+
+.tab {
+  letter-spacing: 0.4px;
+  padding: 12px;
+  color: #585858;
+}
+.tab.active {
+  background-color: rgb(242, 242, 242);
+  color: #7303c0;
+}
+
+.tab-count {
+  font-size: 24px;
+  font-weight: bolder;
+}
+.tab-name {
+  font-size: 14px;
+  white-space: nowrap;
+}
+

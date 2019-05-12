@@ -1,0 +1,36 @@
+.profile-favourites {
+  padding: 100px 0;
+}
+.favourites-list {
+  margin: -1px -1px 40px;
+}
+
+.favourites-list .favourites-item {
+  padding: 1px;
+  line-height: 0;
+  height: 300px;
+  width: 25%;
+}
+
+.favourites-item .item-content {
+  overflow: hidden;
+  position: relative;
+}
+
+.favourites-item .item-content img {
+  height: 100%;
+  max-width: unset;
+  opacity: 1;
+  transition: opacity 0.5s ease-in 0s;
+  position: absolute;
+}
+
+.favourites-item .item-content .btn-like {
+  top: 20px;
+  left: 20px;
+  padding: 2px;
+  font-size: 32px;
+  z-index: 9999;
+  color: #e12ebc;
+  position: absolute;
+}

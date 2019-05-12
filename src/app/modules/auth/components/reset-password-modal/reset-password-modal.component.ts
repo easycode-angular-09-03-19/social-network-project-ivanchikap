@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from "../../services/auth.service";
 import { DefaultServerAnswer } from "../../../../common/interfaces/DefaultServerAnswer";
+import { MessageService } from "primeng/api";
 
 @Component({
   selector: 'app-reset-password-modal',
@@ -13,7 +14,8 @@ export class ResetPasswordModalComponent implements OnInit {
   resetPasswordForm: FormGroup;
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit() {
@@ -31,6 +33,8 @@ export class ResetPasswordModalComponent implements OnInit {
       if (!res.error) {
         this.closeModal();
       }
+    }, (err: DefaultServerAnswer) => {
+      this.messageService.add({severity: 'error', summary: err.message, detail: 'bad request'});
     });
   }
 }

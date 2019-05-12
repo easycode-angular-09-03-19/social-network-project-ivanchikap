@@ -1,0 +1,25 @@
+<div class="follower-item d-flex flex-column align-items-center">
+  <div class="followers-item-bg">
+    <div
+      class="bg-folder"
+      [style.backgroundImage]="'url(' + follower?.cover + ')'"
+      style="opacity: 1; transition: opacity 0.5s ease-in 0s"
+    ></div>
+  </div>
+  <a class="follower-item-link d-flex flex-column align-items-center" href="">
+    <div class="user-avatar small">
+      <img [src]="follower?.avatar" alt="avatar">
+    </div>
+    <span class="follower-name">{{follower?.full_name}}</span>
+  </a>
+  <span class="follower-city text-color-gray">{{follower?.city}}</span>
+  <button
+    class="btn align-self-center btn-border-black"
+    [ngClass]="{'btn-border-black': amIFollow, 'btn-border-violet': !amIFollow}"
+    (click)="onFollowClick(follower?._id)"
+
+  >
+    <span>{{buttonText}}</span>
+  </button>
+</div>
+
