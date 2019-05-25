@@ -32,7 +32,7 @@ export class ProfileFollowsComponent implements OnInit {
             this.buttonText = 'Followings'
           }
         }
-      }, (err) => {
+      }, (err: DefaultServerAnswer) => {
         this.messageService.add({severity: 'error', summary: err.message, detail: 'Bad request'});
       });
     }
@@ -45,7 +45,7 @@ export class ProfileFollowsComponent implements OnInit {
         this.amIFollow = !this.amIFollow;
         this.buttonText = this.amIFollow ? 'Following' : 'Follow';
       }
-    }, (err) => {
+    }, (err: DefaultServerAnswer) => {
       this.messageService.add({severity: 'error', summary: err.message, detail: 'Bad request'});
     });
   }

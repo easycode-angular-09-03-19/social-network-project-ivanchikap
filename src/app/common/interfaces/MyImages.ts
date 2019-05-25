@@ -1,6 +1,6 @@
 export interface MyImages {
-  create_date: string;
-  glories: string[];
+  create_date?: string;
+  glories?: string[];
   likes: string[];
   url: string;
   views: string[];

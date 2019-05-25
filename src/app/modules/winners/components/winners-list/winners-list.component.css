@@ -1,0 +1,26 @@
+.winners {
+  min-height: 1200px;
+}
+.winners .page-inner-bg {
+  background: url("/assets/img/winners-bg.png") no-repeat center / cover;
+  height: 600px;
+  font-family: robotomedium,sans-serif;
+  font-size: 48px;
+  font-weight: bolder;
+}
+
+.winners-content .photos-grid {
+  margin-bottom: 50px;
+}
+.photos-grid {
+  margin: -10px;
+}
+.photos-grid-item {
+  min-width: 25%;
+  min-height: 300px;
+}
+
+.winners-content {
+  padding: 80px 0;
+  min-height: 600px;
+}

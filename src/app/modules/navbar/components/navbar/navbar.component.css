@@ -21,7 +21,7 @@ mat-toolbar {
   color: #e12ebc;
 }
 .menu-item + .menu-item {
-  margin-left: 40px;
+  margin-left: 20px;
 }
 .logo {
   width: 57px;

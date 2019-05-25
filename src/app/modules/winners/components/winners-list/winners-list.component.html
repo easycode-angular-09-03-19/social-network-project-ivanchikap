@@ -1,0 +1,22 @@
+<main class="main">
+  <section class="winners bg-light-primary">
+    <div class="page-inner-bg d-flex justify-content-center align-items-center text-color-white">
+      <h1>Discover inspiring</h1>
+    </div>
+    <cdk-virtual-scroll-viewport
+      class="grid-item-wrap h-800"
+      [itemSize]="200"
+      (scrolledIndexChange)="onScrollChange()"
+    >
+      <div class="winners-content">
+        <div class="container">
+          <div class="photos-grid d-flex flex-wrap">
+              <div class="photos-grid-item" *cdkVirtualFor="let item of winners; trackBy: trackByIndex">
+                <app-winners-item [item]="item"></app-winners-item>
+              </div>
+          </div>
+        </div>
+      </div>
+    </cdk-virtual-scroll-viewport>
+  </section>
+</main>

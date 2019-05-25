@@ -9,7 +9,8 @@ import { map } from "rxjs/operators";
 import { UploadPhotosAnswer } from "../interfaces/UploadPhotosAnswer";
 import { FollowersFollowingsAnswer } from "../interfaces/FollowersFollowingsAnswer";
 import { ImagesAnswer } from "../interfaces/ImagesAnswer";
-import {DefaultServerAnswer} from "../interfaces/DefaultServerAnswer";
+import { DefaultServerAnswer } from "../interfaces/DefaultServerAnswer";
+import {ModalImageAnswer} from "../interfaces/ModalImageAnswer";
 
 @Injectable({
   providedIn: 'root'
@@ -75,5 +76,9 @@ export class UserService {
   }
   followUnFollow(id: string): Observable<DefaultServerAnswer> {
     return this.http.put<DefaultServerAnswer>(`${this.apiUrl}/public/users/following/${id}`, {});
+  }
+
+  getImg(imgId: string): Observable<ModalImageAnswer> {
+    return this.http.get<ModalImageAnswer>(`${this.apiUrl}/public/users/image-info/${imgId}`)
   }
 }

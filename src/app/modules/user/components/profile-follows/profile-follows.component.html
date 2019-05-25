@@ -17,7 +17,6 @@
     class="btn align-self-center btn-border-black"
     [ngClass]="{'btn-border-black': amIFollow, 'btn-border-violet': !amIFollow}"
     (click)="onFollowClick(follower?._id)"
-
   >
     <span>{{buttonText}}</span>
   </button>

@@ -8,10 +8,11 @@
           <nav class="menu">
             <a class="menu-item header-link" href="#">Home</a>
             <a class="menu-item header-link" href="#">Challenges</a>
-            <a class="menu-item header-link" href="#">Winners</a>
+            <a class="menu-item header-link" href="#" [routerLink]="['/winners']">Winners</a>
+            <a class="menu-item header-link" href="#" *ngIf="userId" [routerLink]="['/news']">News</a>
           </nav>
         </div>
-        <div class="col col-4 offset-2 d-flex align-items-center">
+        <div class="col col-4 offset-1 d-flex align-items-center">
           <div class="notifications header-link" (click)="showNotifications = !showNotifications">
             <i class="fa-icon fas fa-bell"></i>
           </div>

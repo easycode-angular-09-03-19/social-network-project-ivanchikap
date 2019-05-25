@@ -1,0 +1,63 @@
+<div class="modal-container d-flex">
+  <div class="modal modal-view-photo pos-relative">
+    <div class="view-photo-wrap d-flex" *appSlider="let img from imgInfo; let ctrl = controller">
+      <div class="left-side d-flex justify-content-center align-items-center bg-dark-primary pos-relative">
+        <div class="img-wrap overflow-hidden">
+          <img [src]="img?.url" class="pos-relative full-width" alt="image">
+          <div class="img-overlay d-flex justify-content-between align-items-center pos-absolute transition text-color-white">
+            <button class="btn-like pos-absolute transition">
+              <i class="fa-icon fa-heart cur-pointer far"></i>
+            </button>
+            <button (click)="ctrl.prev()" class="btn-prev d-flex justify-content-center align-items-center mr-auto transition ng-star-inserted">
+              <i class="fa-icon fas fa-chevron-left cur-pointer"></i>
+            </button>
+            <button (click)="ctrl.next()" class="btn-next d-flex justify-content-center align-items-center transition ng-star-inserted">
+              <i class="fa-icon fas fa-chevron-right cur-pointer"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="right-side d-flex flex-column bg-light-secondary pos-relative">
+        <div  class="right-side-container ng-star-inserted">
+          <button class="btn-close-modal-inside fas fa-times pos-absolute text-color-black" (click)="onCloseClick()"></button>
+          <div class="author-info d-flex align-items-center border-bottom">
+            <a class="author-photo flex-shrink-0 overflow-hidden" href="">
+              <img alt="avatar" [src]="img?.owner.avatar">
+            </a>
+            <div class="d-flex flex-column overflow-hidden">
+              <a class="author-name text-overflow-ellipsis" [href]="img?.owner._id">{{img?.owner.full_name}}</a>
+              <span class="author-country text-color-gray text-overflow-ellipsis">{{img?.owner.city}}</span>
+            </div>
+          </div>
+          <div class="photo-stats d-flex justify-content-center border-bottom cur-default">
+            <div class="stats-views stats-item active d-flex flex-column align-items-center justify-content-end transition">
+              <i class="fa-icon fas fa-eye"></i>
+              <span class="stats-count">{{img?.views.length}}</span>
+              <span class="stats-desc text-uppercase">Views</span>
+            </div>
+            <div class="stats-likes stats-item d-flex flex-column align-items-center justify-content-end transition">
+              <i class="fa-icon fas fa-thumbs-up"></i>
+              <span class="stats-count">{{img?.likes.length}}</span>
+              <span class="stats-desc text-uppercase">Likes</span>
+            </div>
+            <div class="stats-glories stats-item d-flex flex-column align-items-center justify-content-end transition">
+              <i class="fa-icon fas fa-medal"></i>
+              <span class="stats-count">{{img?.glories.length}}</span>
+              <span class="stats-desc text-uppercase">Glories</span>
+            </div>
+          </div>
+          <form  class="write-comment d-flex flex-column ng-valid ng-star-inserted ng-dirty ng-touched" novalidate="">
+            <textarea  change-param="" class="form-control ng-valid ng-dirty ng-touched" formcontrolname="comment" id="comment-area" name="comment-area" placeholder="Write a comment..." style=""></textarea>
+            <div  class="align-self-end">
+              <button type="submit" class="btn btn-border-violet btn-bg-light mt-2 small-btn">
+                <span class="btn-wrapper">
+                  <span>Submit</span>
+                </span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

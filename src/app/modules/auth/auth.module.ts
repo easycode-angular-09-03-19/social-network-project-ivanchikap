@@ -33,6 +33,11 @@ import { SignupFormComponent } from './components/signup-form/signup-form.compon
     MatInputModule,
     FormsModule
   ],
-  providers: [AuthService, {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}]
+  providers: [
+    AuthService,
+    {
+      provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher
+    }
+  ]
 })
 export class AuthModule { }

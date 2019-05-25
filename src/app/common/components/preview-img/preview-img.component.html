@@ -1,0 +1,27 @@
+<div class="grid-item pos-relative cur-pointer" (click)="onGridItemClick()">
+  <img class="pos-absolute" [appImgLoader]="item?.url" alt="news-image">
+  <div class="grid-item-overlay d-flex flex-column justify-content-between pos-relative transition text-color-white news">
+    <div class="overlay-top d-flex">
+      <button class="btn-report transition">
+        <i class="fa-icon fas fa-exclamation-circle"></i>
+      </button>
+      <button class="btn-like ml-auto transition">
+        <i class="fa-icon fa-heart far"></i>
+      </button>
+    </div>
+    <div class="overlay-bottom">
+      <span class="views-count">{{item?.views.length}}</span>
+      <span class="likes-count">{{item?.likes.length}}</span>
+    </div>
+  </div>
+</div>
+
+<app-img-info
+  [imagesOfOwner]="imagesOfOwner"
+  [imagesOfOwnerFromWinners]="imagesOfOwnerFromWinners"
+  class="img-info-modal"
+  *ngIf="showModal"
+  (modalClose)="onOutputEvent($event)"
+></app-img-info>
+
+

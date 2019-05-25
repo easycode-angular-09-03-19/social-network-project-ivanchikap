@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {Challenge} from "../../../modules/home/interfaces/Challenge";
+import { Challenge } from "../../../modules/home/interfaces/Challenge";
 
 @Component({
   selector: 'app-challenge-card',

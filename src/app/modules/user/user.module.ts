@@ -8,7 +8,7 @@ import { ProfileCoverComponent } from './components/profile-cover/profile-cover.
 import { ProfileControlsComponent } from './components/profile-controls/profile-controls.component';
 import { ProfileTabsContainerComponent } from './components/profile-tabs-container/profile-tabs-container.component';
 import { ProfileSelfiesComponent } from './components/profile-selfies/profile-selfies.component';
-import {PicturePreviewComponent} from "../../common/components/picture-preview/picture-preview.component";
+import { PicturePreviewComponent } from "../../common/components/picture-preview/picture-preview.component";
 import { ProfileFavouritesComponent } from './components/profile-favourites/profile-favourites.component';
 import { ProfileGloriesComponent } from './components/profile-glories/profile-glories.component';
 import { ProfileFollowersComponent } from './components/profile-followers/profile-followers.component';
@@ -20,7 +20,6 @@ import { ProfileFollowsComponent } from './components/profile-follows/profile-fo
   imports: [
     CommonModule,
     UserRoutingModule,
-
   ]
 })
 export class UserModule { }

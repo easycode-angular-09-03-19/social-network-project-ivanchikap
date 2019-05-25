@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="news-item d-flex">
+    <div class="item-info d-flex flex-column align-items-center flex-shrink-0 text-color-black">
+      <div class="author-info-wrapper d-flex flex-column align-items-center overflow-hidden">
+        <a href="#" class="author-img overflow-hidden">
+          <img [src]="item?.owner.avatar" alt="avatar">
+        </a>
+        <div class="author-info d-flex align-items-center flex-column">
+          <a href="#" class="author-name text-center text-overflow-ellipsis">{{item?.owner.full_name}}</a>
+          <span class="author-country">{{item?.owner.country}}</span>
+        </div>
+      </div>
+      <div class="upload-info-wrapper d-flex flex-column justify-content-center align-items-center text-color-gray">
+        <span class="upload-count">Upload {{item?.pictures.length}} photos</span>
+        <span class="upload-date">At {{item?.date.substring(11, 16)}}</span>
+      </div>
+      <button
+        class="btn btn-bg-light align-self-center btn-border-violet"
+        [ngClass]="{'btn-border-black': amIFollow, 'btn-border-violet': !amIFollow}"
+        (click)="onFollowClick(item?.owner._id)"
+      >
+        {{buttonText}}
+      </button>
+    </div>
+    <div class="item-content d-flex">
+      <div
+        class="previews-col first"
+        *ngIf="item?.pictures[0]"
+        [ngClass]="{'w-66': item?.pictures[1] && item?.pictures[2], 'w-50': item?.pictures[1] && !item?.pictures[2]}">
+        <app-preview-img
+          [imagesOfOwner]="item"
+          class="preview-wrap"
+          [item]="item?.pictures[0]"
+        ></app-preview-img>
+      </div>
+      <div
+        class="previews-col second"
+        *ngIf="item?.pictures[1]"
+        [ngClass]="{'w-50': item?.pictures[1] && !item?.pictures[2], 'w-33': item?.pictures[1] && item?.pictures[2]}"
+      >
+        <app-preview-img
+          class="preview-wrap"
+          [item]="item?.pictures[1]"
+          [ngClass]="{'h-50': item?.pictures[2]}"
+          *ngIf="item?.pictures[1]"
+        ></app-preview-img>
+        <app-preview-img
+          class="h-50 preview-wrap"
+          [item]="item?.pictures[2]"
+          *ngIf="item?.pictures[2]"
+        ></app-preview-img>
+      </div>
+    </div>
+  </div>
+</div>
+
+
